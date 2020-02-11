@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-imagescanwithoauth-dev-133043-authRole",
+            "UnauthRoleArn": "arn:aws:iam::690671720353:role/amplify-imagescanwithoauth-dev-133043-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::690671720353:role/amplify-imagescanwithoauth-dev-133043-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-imagescanwithoauth-dev-133043-deployment",
+            "UnauthRoleName": "amplify-imagescanwithoauth-dev-133043-unauthRole",
+            "StackName": "amplify-imagescanwithoauth-dev-133043",
+            "StackId": "arn:aws:cloudformation:us-east-1:690671720353:stack/amplify-imagescanwithoauth-dev-133043/78251a80-4bdb-11ea-a8c5-12c270bd7978",
+            "AmplifyAppId": "d28qvr0u812x9"
+        },
+        "categories": {
+            "auth": {
+                "imagescanwithoauth8e7169ec": {}
+            }
+        }
+    }
+}

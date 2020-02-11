@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { Predictions } from 'aws-amplify';
+//import { WithAuthenticator } from 'aws-amplify-react';
+import config from './aws-exports';
+import Amplify from 'aws-amplify';
+import { withAuthenticator } from 'aws-amplify-react';
+
+Amplify.configure(config)
 
 function App() {
+  const [res, setRes] = useState("Please upload a image......")
+  async function identify(event){
+    setRes("Identifying text....")
+    const { target: {files} } = event
+    const file = files[0]
+    const data = await Predictions.identify({
+      text: { source: { file }, format: "PLAIN"}
+    })
+
+    setRes(data.text.fullText)
+    console.log(setRes)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3>Text Identification</h3>
+      <input type="file" onChange={identify} />
+      <p>{res}</p>
     </div>
   );
 }
 
-export default App;
+export default withAuthenticator(App, true);
